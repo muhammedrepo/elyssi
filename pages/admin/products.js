@@ -33,7 +33,7 @@ function reducer(state, action) {
       state
   }
 }
-export default function AdminProductsScreen() {
+export default function Admin() {
   const [
     { loading, error, products, loadingCreate, successDelete, loadingDelete },
     dispatch,
@@ -155,4 +155,4 @@ export default function AdminProductsScreen() {
   )
 }
 
-AdminProductsScreen.auth = { adminOnly: true }
+Admin.auth = { adminOnly: true }
