@@ -6,7 +6,6 @@ import Post from '@/models/Post'
 import BlogSidebar from '@/components/BlogSidebar'
 
 export default function BlogPageScreen({ posts, recentPosts, allCategories }) {
-  console.log(allCategories)
   const breadcrumbItems = [
     {
       label: 'Home',
