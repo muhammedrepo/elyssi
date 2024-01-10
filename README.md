@@ -181,6 +181,13 @@ npm run dev
     4. implement delete api
 ```
 
+## Publish On Vercel
+
+    1. create vercel account
+    2. connect to github
+    3. set next auth and mongodb db in env vars
+    4. push code to github
+
 ## Add to cart explained
 
 GitHub Copilot: The provided code is a snippet from a file called `Store.js` in a JavaScript project that uses npm and React. Let's break it down step by step:

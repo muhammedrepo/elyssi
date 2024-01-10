@@ -121,7 +121,7 @@ export default function AdminProductsScreen() {
                 </tr>
               </thead>
               <tbody>
-                {products.map((product) => (
+                {products?.map((product) => (
                   <tr key={product._id} className="border-b">
                     <td className=" p-5 ">{product._id.substring(20, 24)}</td>
                     <td className=" p-5 ">{product.name}</td>

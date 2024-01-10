@@ -1,5 +1,5 @@
 // PostExcerpt.js
-import Image from "next/image"
+import Image from 'next/image'
 import React from 'react'
 
 export default function PostExcerpt({ title, content, excerptImage, altText }) {
@@ -26,9 +26,9 @@ export default function PostExcerpt({ title, content, excerptImage, altText }) {
                     marginLeft: '0',
                     width: '80%',
                     height: 'auto',
-                    maxWidth: "100%",
-                    height: "auto"
-                  }} />
+                    maxWidth: '100%',
+                  }}
+                />
               )}
             </React.Fragment>
           ))
@@ -37,5 +37,5 @@ export default function PostExcerpt({ title, content, excerptImage, altText }) {
         )}
       </div>
     </div>
-  );
+  )
 }

@@ -3,7 +3,7 @@ import IntroSection from '@/components/IntroSection'
 import MissionSection from '@/components/MissionSection'
 import TeamSection from '@/components/TeamSection'
 import Layout from '@/components/layout/Layout'
-import Image from "next/image"
+import Image from 'next/image'
 
 export default function AboutPageScreen() {
   const breadcrumbItems = [
@@ -60,9 +60,9 @@ export default function AboutPageScreen() {
                     style={{
                       width: '100%',
                       height: '100%',
-                      maxWidth: "100%",
-                      height: "auto"
-                    }} />
+                      maxWidth: '100%',
+                    }}
+                  />
                 </div>
                 <p className="mt-10 font-hk text-base text-secondary">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -98,9 +98,9 @@ export default function AboutPageScreen() {
                     style={{
                       width: '100%',
                       height: '100%',
-                      maxWidth: "100%",
-                      height: "auto"
-                    }} />
+                      maxWidth: '100%',
+                    }}
+                  />
                 </div>
                 <p className="mt-10 font-hk text-base text-secondary">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -129,9 +129,10 @@ export default function AboutPageScreen() {
               width={224}
               height={224}
               style={{
-                maxWidth: "100%",
-                height: "auto"
-              }} />
+                maxWidth: '100%',
+                height: 'auto',
+              }}
+            />
           </div>
         </div>
         <h3 className="mx-auto mt-12 px-6 text-center font-butler text-2xl leading-tight text-secondary sm:px-16 sm:text-3xl md:text-4xl xl:text-5xl">
@@ -148,5 +149,5 @@ export default function AboutPageScreen() {
       <IntroSection />
       <TeamSection />
     </Layout>
-  );
+  )
 }

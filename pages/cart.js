@@ -2,7 +2,7 @@ import Layout from '@/components/layout/Layout'
 import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import Link from 'next/link'
-import Image from "next/image"
+import Image from 'next/image'
 import XMarkIcon from '@heroicons/react/24/solid/XMarkIcon'
 import ChevronUp from '@heroicons/react/24/solid/ChevronUpIcon'
 import ChevronDown from '@heroicons/react/24/solid/ChevronDownIcon'
@@ -112,9 +112,9 @@ function CartScreen() {
                                           style={{
                                             width: '100%',
                                             height: '100%',
-                                            maxWidth: "100%",
-                                            height: "auto"
-                                          }} />
+                                            maxWidth: '100%',
+                                          }}
+                                        />
                                       </div>
                                     </div>
                                   </div>
@@ -167,7 +167,7 @@ function CartScreen() {
                               </span>
                             </td>
                           </tr>
-                        );
+                        )
                       })}
                     </tbody>
                   </table>
@@ -237,7 +237,7 @@ function CartScreen() {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
 export default dynamic(() => Promise.resolve(CartScreen), { ssr: false })
