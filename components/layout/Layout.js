@@ -48,7 +48,7 @@ export default function Layout({ children, title }) {
               <MobileCart isOpen={activeMobileView === 'cart'} />
             </div>
           </header>
-          <main className={`container mx-auto `}>
+          <main className={`container mx-auto`}>
             {children}
             <CtaSection />
           </main>

@@ -5,6 +5,7 @@ import { getError } from '@/utils/error'
 import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 import AdminLayout from '../account'
+import Image from 'next/image'
 
 function reducer(state, action) {
   switch (action.type) {
@@ -91,9 +92,11 @@ export default function Admin() {
 
   return (
     <AdminLayout>
-      <div className="bg-grey-light py-10 px-6 sm:px-10">
+      <div className="bg-grey-light py-8 px-5 sm:px-8">
         <div className="flex justify-between">
-          <h1 className="mb-4 text-xl">Products</h1>
+          <h1 className="font-hkbold pb-6 text-center text-2xl text-secondary sm:text-left">
+            Products
+          </h1>
           {loadingDelete && <div>Deleting item...</div>}
           <button
             disabled={loadingCreate}
@@ -107,48 +110,92 @@ export default function Admin() {
         ) : error ? (
           <div className="alert-error">{error}</div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="min-w-full">
-              <thead className="border-b">
-                <tr>
-                  <th className="px-5 text-left">ID</th>
-                  <th className="p-5 text-left">NAME</th>
-                  <th className="p-5 text-left">PRICE</th>
-                  <th className="p-5 text-left">CATEGORY</th>
-                  <th className="p-5 text-left">COUNT</th>
-                  <th className="p-5 text-left">RATING</th>
-                  <th className="p-5 text-left">ACTIONS</th>
-                </tr>
-              </thead>
-              <tbody>
-                {products?.map((product) => (
-                  <tr key={product._id} className="border-b">
-                    <td className=" p-5 ">{product._id.substring(20, 24)}</td>
-                    <td className=" p-5 ">{product.name}</td>
-                    <td className=" p-5 ">${product.price}</td>
-                    <td className=" p-5 ">{product.category}</td>
-                    <td className=" p-5 ">{product.countInStock}</td>
-                    <td className=" p-5 ">{product.rating}</td>
-                    <td className=" p-5 space-x-4 ">
-                      <Link
-                        href={`/admin/product/${product._id}`}
-                        type="button"
-                        className="outline-button">
-                        Edit
-                      </Link>
-                      &nbsp;
-                      <button
-                        onClick={() => deleteHandler(product._id)}
-                        className="primary-button"
-                        type="button">
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+          <>
+            <div className="hidden sm:block">
+              <div className="flex justify-between pb-3">
+                <div className="w-1/3 pl-4 md:w-2/5">
+                  <span className="font-hkbold text-sm uppercase text-secondary">
+                    Product Name
+                  </span>
+                </div>
+                <div className="w-1/4 text-center xl:w-1/5">
+                  <span className="font-hkbold text-sm uppercase text-secondary">
+                    Quantity
+                  </span>
+                </div>
+                <div className="mr-3 w-1/6 text-center md:w-1/5">
+                  <span className="font-hkbold text-sm uppercase text-secondary">
+                    Price
+                  </span>
+                </div>
+                <div className="w-3/10 text-center md:w-1/5">
+                  <span className="font-hkbold pr-8 text-sm uppercase text-secondary md:pr-16 xl:pr-8">
+                    Action
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {products.map((product) => (
+              <div
+                key={product._id}
+                className="mb-3 flex flex-col items-center justify-between rounded bg-white px-4 py-5 shadow sm:flex-row sm:py-4">
+                <div className="flex w-full flex-col border-b border-grey-dark pb-4 text-center sm:w-1/3 sm:border-b-0 sm:pb-0 sm:text-left md:w-2/5 md:flex-row md:items-center">
+                  <span className="font-hkbold block pb-2 text-center text-sm uppercase text-secondary sm:hidden">
+                    Product Name
+                  </span>
+                  <div className="relative mx-auto w-20 sm:mx-0 sm:mr-3 sm:pr-0">
+                    <div className="flex h-20 items-center justify-center rounded">
+                      <div className="aspect-w-1 aspect-h-1 w-full">
+                        <Image
+                          src={product.images[0].url}
+                          alt="product image"
+                          className="object-cover"
+                          width={100}
+                          height={0}
+                          sizes="100vw"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <span className="mt-2 font-hk text-base text-secondary">
+                    {product.name}
+                  </span>
+                </div>
+                <div className="w-full border-b border-grey-dark pb-4 text-center sm:w-1/5 sm:border-b-0 sm:pb-0">
+                  <span className="font-hkbold block pt-3 pb-2 text-center text-sm uppercase text-secondary sm:hidden">
+                    Quantity
+                  </span>
+                  <span className="font-hk text-secondary">
+                    {product.countInStock}
+                  </span>
+                </div>
+                <div className="w-full pb-4 text-center sm:w-1/6 sm:pr-6 sm:pb-0 sm:text-right xl:w-1/5 xl:pr-16">
+                  <span className="font-hkbold block pt-3 pb-2 text-center text-sm uppercase text-secondary sm:hidden">
+                    Price
+                  </span>
+                  <span className="font-hk text-secondary">
+                    ${product.price}
+                  </span>
+                </div>
+                <div className="space-x-2">
+                  <Link
+                    href={`/admin/product/${product._id}`}
+                    type="button"
+                    className="outline-button">
+                    Edit
+                  </Link>
+                  &nbsp;
+                  <button
+                    onClick={() => deleteHandler(product._id)}
+                    className="primary-button"
+                    type="button">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            ))}
+          </>
         )}
       </div>
     </AdminLayout>

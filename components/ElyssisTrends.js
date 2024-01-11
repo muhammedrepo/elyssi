@@ -54,7 +54,7 @@ export default function ElyssisTrends({ products }) {
     ))
   }
   return (
-    <div className="pb-20 md:pb-24 lg:pb-32">
+    <div className="pb-20 md:pb-24 lg:pb-32 px-4">
       <div className="mb-12 flex flex-col items-center justify-between sm:mb-10 sm:flex-row sm:pb-4 lg:pb-0">
         <div className="text-center sm:text-left">
           <h2 className="font-butler text-3xl text-secondary md:text-4xl lg:text-4.5xl">
@@ -86,7 +86,9 @@ export default function ElyssisTrends({ products }) {
           </div>
         </div>
         <Splide options={slideOptions} hasTrack={false} className="relative">
-          <SplideTrack>{renderProductItemsSlides()}</SplideTrack>
+          <SplideTrack style={{ paddingLeft: '0px', paddingRight: '0px' }}>
+            {renderProductItemsSlides()}
+          </SplideTrack>
         </Splide>
       </div>
     </div>

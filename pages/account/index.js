@@ -19,7 +19,7 @@ export default function AdminLayout({ children }) {
   return (
     <Layout>
       <div>
-        <div className="container border-t border-grey-dark">
+        <div className="container border-t border-grey-dark px-4">
           <div className="flex flex-col justify-between pt-10 pb-16 sm:pt-12 sm:pb-20 lg:flex-row lg:pb-24">
             <div className="lg:w-1/4">
               <p className="pb-6 font-butler text-2xl text-secondary sm:text-3xl lg:text-4xl">
