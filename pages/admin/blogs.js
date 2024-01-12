@@ -106,43 +106,45 @@ export default function AdminBlogScreen() {
         ) : error ? (
           <div className="alert-error">{error}</div>
         ) : (
-          <table className="table-auto w-full">
-            <thead>
-              <tr>
-                <th className="px-4 py-2">ID</th>
-                <th className="px-4 py-2">AUTHOR</th>
-                <th className="px-4 py-2">TITLE</th>
-                <th className="px-4 py-2">CATEGORY</th>
-                <th className="px-4 py-2">ACTION</th>
-              </tr>
-            </thead>
-            <tbody>
-              {blogs.map((blog) => (
-                <tr key={blog._id}>
-                  <td className="border px-4 py-2">
-                    {blog._id.substring(20, 24)}
-                  </td>
-                  <td className="border px-4 py-2">{blog.author}</td>
-                  <td className="border px-4 py-2">{blog.title}</td>
-                  <td className="border px-4 py-2">{blog.category}</td>
-                  <td className=" p-5 space-x-4 ">
-                    <Link
-                      href={`/admin/blog/${blog._id}`}
-                      type="button"
-                      className="outline-button">
-                      Edit
-                    </Link>
-                    &nbsp;
-                    <button
-                      className="primary-button"
-                      onClick={() => deleteHandler(blog._id)}>
-                      Delete
-                    </button>
-                  </td>
+          <div className="relative overflow-x-auto">
+            <table className="table-auto w-full">
+              <thead>
+                <tr>
+                  <th className="px-4 py-2">ID</th>
+                  <th className="px-4 py-2">AUTHOR</th>
+                  <th className="px-4 py-2">TITLE</th>
+                  <th className="px-4 py-2">CATEGORY</th>
+                  <th className="px-4 py-2">ACTION</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {blogs.map((blog) => (
+                  <tr key={blog._id}>
+                    <td className="border px-4 py-2">
+                      {blog._id.substring(20, 24)}
+                    </td>
+                    <td className="border px-4 py-2">{blog.author}</td>
+                    <td className="border px-4 py-2">{blog.title}</td>
+                    <td className="border px-4 py-2">{blog.category}</td>
+                    <td className=" p-5 space-x-4 flex flex-col lg:flex-row">
+                      <Link
+                        href={`/admin/blog/${blog._id}`}
+                        type="button"
+                        className="outline-button">
+                        Edit
+                      </Link>
+                      &nbsp;
+                      <button
+                        className="primary-button"
+                        onClick={() => deleteHandler(blog._id)}>
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </AdminLayout>

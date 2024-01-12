@@ -77,8 +77,8 @@ export default function AdminUsersScreen() {
         ) : error ? (
           <div className="alert-error">{error}</div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="min-w-full">
+          <div className="relative overflow-x-auto">
+            <table className="table-auto min-w-full">
               <thead className="border-b">
                 <tr>
                   <th className="px-5 text-left">ID</th>
@@ -92,10 +92,10 @@ export default function AdminUsersScreen() {
                 {users.map((user) => (
                   <tr key={user._id} className="border-b">
                     <td className=" p-5 ">{user._id.substring(20, 24)}</td>
-                    <td className=" p-5 ">{user.name}</td>
+                    <td className=" p-5 ">{user.firstName}</td>
                     <td className=" p-5 ">{user.email}</td>
                     <td className=" p-5 ">{user.isAdmin ? 'YES' : 'NO'}</td>
-                    <td className=" p-5 space-x-4 ">
+                    <td className=" p-5 space-x-4 flex flex-col lg:flex-row">
                       <Link
                         href={`/admin/user/${user._id}`}
                         passHref

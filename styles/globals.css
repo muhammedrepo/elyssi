@@ -141,7 +141,7 @@ textarea {
 }
 
 .primary-button {
-  @apply font-medium tracking-wide uppercase py-4 px-8 rounded-md transition-all duration-300 ease-in-out bg-primary hover:bg-primary-light text-white;
+  @apply font-medium tracking-wide uppercase py-3 px-7 rounded-md transition-all duration-300 ease-in-out bg-primary hover:bg-primary-light text-white;
 }
 
 .outline-button {
